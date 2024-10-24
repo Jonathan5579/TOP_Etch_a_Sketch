@@ -4,7 +4,14 @@
    padding:24px;
    font-family: 'Jetbrains Mono'">
 
-# TOP_Etch_a_Sketch
+<div style="
+display:flex; 
+flex-direction: row;
+gap: 8px;">
+   <img src="./assets/The_odin_project_icon.png" width="25px"  height="35px"/> 
+   <h1>TOP_Etch_a_Sketch</h1>
+</div>
+
 
 Project description at [Project: Etch-a-Sketch](https://www.theodinproject.com/lessons/foundations-etch-a-sketch "https://www.theodinproject.com/lessons/foundations-etch-a-sketch"):
 
