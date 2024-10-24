@@ -1,3 +1,24 @@
 #main_header {
    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
+#container{
+   padding: 8px;
+   border: 1px solid rgb(38 74 169);
+   border-radius: 8px;
+   flex-wrap: wrap;
+   max-width: 300px;
+   display: flex;
+}
+
+.square_div{
+   width: 50px;
+   height: 50px;
+   background-color: rgb(208 108 243);
+   border-radius: 4px;
+   margin: 4px;
+}
+
+.square_div:hover{
+   background-color: rgb(236 182 255);
+}
