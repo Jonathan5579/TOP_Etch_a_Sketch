@@ -8,16 +8,18 @@ body {
 }
 
 #container{
-   padding: 8px;
+   /* padding: 8px; */
    border: 1px solid rgb(38 74 169);
    border-radius: 8px;
    flex-wrap: wrap;
    display: flex;
+   /* width: 20px; */
+   /* height: 20px; */
 
 }
 
 .square_div{
-   background-color: rgb(208 108 243);
+   background-color: rgb(41, 26, 46);
    /*border-radius: 4px;*/
 }
 
