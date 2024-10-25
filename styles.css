@@ -1,3 +1,8 @@
+body {
+   background-color: rgb(30, 31, 34);
+   color: white;
+}
+
 #main_header {
    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
@@ -13,7 +18,7 @@
 
 .square_div{
    background-color: rgb(208 108 243);
-   border-radius: 4px;
+   /*border-radius: 4px;*/
 }
 
 .square_div:hover{
