@@ -2,8 +2,8 @@
 const SQUARE_WIDTH = 10;
 const SQUARE_HEIGHT = 10;
 const SQUARE_MARGIN = 0;
-const CONTAINER_WIDTH = 240;
-const CONTAINER_HEIGHT = 240;
+const CONTAINER_WIDTH = 500;
+const CONTAINER_HEIGHT = 500;
 const CONTAINER_PADDING = 8;
 const MAX_BOX_HORIZONTAL_ELEMENTS = 16;
 //-CONSTANTS
@@ -66,6 +66,11 @@ squaresPerSideButton.addEventListener('click', ()=>{
       alert("Please introduce a 1-3 digit number");
       return
    }
+   if (squaresPerSide > 100){
+      alert("More than 100 squares per side leads to browser freezing. Try with less.")
+      return
+   }
+
    cleanContainer();
    console.log(`adding ${squaresPerSide} squares perside`);
    
