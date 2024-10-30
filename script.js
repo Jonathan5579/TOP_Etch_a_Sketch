@@ -24,13 +24,6 @@ function createSquareDiv(width = SQUARE_WIDTH, height = SQUARE_HEIGHT){
    container.appendChild(squareDiv);
 }
 
-function generateNSquareDivs(n){
-   
-   for (let i=0; i<n; i++){
-      createSquareDiv();
-   }
-}
-
 function fillContainer(){
    /**The container has a height H and wide W, and each individual square has
     * a height h and width w, with added margin m on both sides 
@@ -38,18 +31,21 @@ function fillContainer(){
     * Total area of the contianer is "HW", thus 
     * the padding isn't added as that area cannot be used
    */
+   cleanContainer();
    let individualSquareArea = (SQUARE_HEIGHT + (2*SQUARE_MARGIN)) * (SQUARE_WIDTH + (2*SQUARE_MARGIN));
    let containerArea = CONTAINER_HEIGHT * CONTAINER_WIDTH;
    let TotalNumberOfSquaresNeed = containerArea / individualSquareArea;
 
-   generateNSquareDivs(TotalNumberOfSquaresNeed)
+   for (let i=0; i<TotalNumberOfSquaresNeed; i++){
+      createSquareDiv();
+   }
 }
 
 
 const createSquaresButton = document.querySelector("#CreateSquaresButton")
 createSquaresButton.addEventListener('click', ()=>{
    console.log("CreateSquaresButton");
-   generateNSquareDivs(1);
+   createSquareDiv();
 });
 
 const fillContainerButton = document.querySelector("#FillContainer");
@@ -70,6 +66,7 @@ squaresPerSideButton.addEventListener('click', ()=>{
       alert("Please introduce a 1-3 digit number");
       return
    }
+   cleanContainer();
    console.log(`adding ${squaresPerSide} squares perside`);
    
    //calculate the new square side:
@@ -81,3 +78,18 @@ squaresPerSideButton.addEventListener('click', ()=>{
       createSquareDiv(width, height);
    }
 })
+
+/**Remove and recreate container*/
+function cleanContainer(){
+   var paras = document.getElementsByClassName('square_div');
+   
+   //* Removes all the square_div classes
+   while(paras[0]) {
+      paras[0].parentNode.removeChild(paras[0]);
+   }
+}
+const clearnContainerButton = document.querySelector("#ClearnContainerButton");
+clearnContainerButton.addEventListener('click', ()=>{
+   //* Query all the elemends with the square_div class
+   cleanContainer();
+});
