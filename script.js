@@ -12,10 +12,10 @@ const MAX_BOX_HORIZONTAL_ELEMENTS = 16;
 const container = document.querySelector("#container");
 container.setAttribute("style", `width: ${CONTAINER_WIDTH}px; height: ${CONTAINER_HEIGHT}px; padding: ${CONTAINER_PADDING}px`)
 
-function createSquareDiv(){
+function createSquareDiv(width = SQUARE_WIDTH, height = SQUARE_HEIGHT){
    const squareDiv = document.createElement("div");
    squareDiv.setAttribute("class", "square_div")
-   squareDiv.setAttribute("style", `width: ${SQUARE_WIDTH}px; height: ${SQUARE_HEIGHT}px; margin: ${SQUARE_MARGIN}px;`)
+   squareDiv.setAttribute("style", `width: ${width}px; height: ${height}px; margin: ${SQUARE_MARGIN}px;`)
 
    squareDiv.addEventListener('mouseover', ()=>{
       squareDiv.style["background-color"] = "rgb(50 50 50)";
@@ -56,3 +56,28 @@ const fillContainerButton = document.querySelector("#FillContainer");
 fillContainerButton.addEventListener('click', ()=>{
    fillContainer();
 });
+
+
+/** 
+ * Filling squares per side section
+*/
+const squaresPerSideButton = document.querySelector("#SquaresPerSide");
+squaresPerSideButton.addEventListener('click', ()=>{
+   let squaresPerSide = +prompt("Squares per side?");
+
+   //Regex that validates user input be a number from 1 - 3 digits
+   if (!(/^\d{1,3}$/.test(squaresPerSide))){
+      alert("Please introduce a 1-3 digit number");
+      return
+   }
+   console.log(`adding ${squaresPerSide} squares perside`);
+   
+   //calculate the new square side:
+   let width = CONTAINER_WIDTH/squaresPerSide;
+   let height = CONTAINER_HEIGHT/squaresPerSide;
+   let totalSquares = squaresPerSide * squaresPerSide
+
+   for (let i=0; i<totalSquares; i++){
+      createSquareDiv(width, height);
+   }
+})
