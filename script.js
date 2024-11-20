@@ -15,10 +15,16 @@ container.setAttribute("style", `width: ${CONTAINER_WIDTH}px; height: ${CONTAINE
 function createSquareDiv(width = SQUARE_WIDTH, height = SQUARE_HEIGHT){
    const squareDiv = document.createElement("div");
    squareDiv.setAttribute("class", "square_div")
-   squareDiv.setAttribute("style", `width: ${width}px; height: ${height}px; margin: ${SQUARE_MARGIN}px;`)
 
+   squareDiv.setAttribute("style", `width: ${width}px; height: ${height}px; margin: ${SQUARE_MARGIN}px;`)
+   
+   let randomColor = `rgb(${Math.random() * 255} ${Math.random() * 255} ${Math.random() * 255})`
+   squareDiv.style["background-color"] = randomColor;
+   
    squareDiv.addEventListener('mouseover', ()=>{
-      squareDiv.style["background-color"] = "rgb(50 50 50)";
+
+      let randomHoverColour = `rgb(${Math.random() * 255} ${Math.random() * 255} ${Math.random() * 255})`
+      squareDiv.style["background-color"] = randomHoverColour;
       console.log("hovering...");
    })
    container.appendChild(squareDiv);
